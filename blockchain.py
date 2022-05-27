@@ -6,6 +6,7 @@ from time import time
 
 class Blockchain(object):
 
+
     def __init__(self):
         self.chain = []
         self.pending_transactions = []
@@ -89,9 +90,22 @@ class Blockchain(object):
     def last_block(self):
         # Returns the last Block in the chain
         return self.chain[-1]
+    
 
+        # Instance our Node
+app = Flask(__name__)
+
+    # Generate a globally unique address for this node
+node_identifier = str(uuid4()).replace('-', '')
+
+    # Instace the Blockchain
+blockchain = Blockchain()
 
 if __name__ == "__main__":
     blockchain = Blockchain()
     blockchain.proof_of_work(blockchain.last_block)
     print(blockchain.hash(blockchain.last_block))
+    
+    
+
+    
